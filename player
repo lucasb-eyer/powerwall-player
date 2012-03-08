@@ -1,0 +1,11 @@
+#!/bin/bash
+
+LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+if [ -d "env" ]; then
+    env/bin/python player.py "$@"
+elif [ -x "player.py" ]; then
+    ./player.py "$@"
+else
+    /usr/bin/env python player.py "$@"
+fi
+
